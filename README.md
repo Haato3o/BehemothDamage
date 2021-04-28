@@ -14,5 +14,21 @@ sub rsp,68
 ; 0x0F is Behemoth's game Id
 cmp dword ptr [rcx+0x00012280],0x0F
 jne MonsterHunterWorld.exe+0x1CE16D6 ; Jumps to normal damage function if monster Id is different from Behemoth's
-
+mov eax,[rsp+0x000000B0]
+mov byte ptr [rsp+0x50],0x00
+mov [rsp+0x48],0x00000000
+mov [rsp+0x40],eax
+movzx eax,byte ptr [rsp+0x000000A8]
+mov [rsp+0x38],al
+mov eax,[rsp+0x00000098]
+mov [rsp+0x30],eax
+mov eax,[rsp+0x00000090]
+mov [rsp+0x28],eax
+mov [rsp+0x20],r9d
+mov r9,r8
+mov r8d,edx
+mov rdx,rcx
+mov rcx,[MonsterHunterWorld.exe+0x5224B80]
+; Calls the Behemoth damage drawing function
+call MonsterHunterWorld.exe+0x1AF69A0
 ```
