@@ -2,7 +2,7 @@
 
 using namespace loader;
 
-static uintptr_t damage_function = (uintptr_t)0x141CE1670;
+static uintptr_t damage_function = (uintptr_t)0x141CC51B0;
 
 void PatchDamageFunction()
 {
